@@ -1,6 +1,8 @@
 <template>
   <div class="myComponent">
-    <h1>Nouveau composant</h1>
+    <h1 @click="sendAlert">Salut {{ name }} - {{ num }} - {{ nbPlus10 }}</h1>
+    <slot>
+    </slot>
   </div>
 </template>
 
@@ -8,7 +10,26 @@
 export default {
   name: 'Test',
 
+  props: {
+    text: String,
+    num: {
+      type: Number,
+      default: 0
+    }
+  },
 
+  data() {
+    return {
+      name: 'cecilia',
+      nbPlus10: this.num + 10
+    }
+  },
+
+  methods: {
+    sendAlert() {
+      alert('yo')
+    }
+  }
 
 }
 </script>
