@@ -62,6 +62,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+  .guessNumber {
+    background-color: $light-grey;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+  }
 </style>
 
