@@ -1,7 +1,7 @@
 <template>
   <div class="guessNumber">
     <h4>Exercice 1 - Devine le nombre</h4>
-    <p>Ecrivez un chiffre entre 0 et 5</p>
+    <p>Ecrivez un chiffre entre 0 et 10</p>
     <div>
       <input type="text" v-model="numPlayer">
       <button @click="play">Jouer</button>
@@ -20,7 +20,7 @@ export default {
   name: 'GuessNumber',
 
   data () {
-    let numOrdi = Math.random()*5
+    let numOrdi = Math.random()*10
     return {
       numPlayer: "",
       nbOrdi: Math.round(numOrdi),
@@ -52,9 +52,10 @@ export default {
     reset() {
       this.nbEssai = 0
       this.numPlayer = ""
-      let numOrdi = Math.random()*5
+      let numOrdi = Math.random()*10
       this.nbOrdi = Math.round(numOrdi)
       this.winner = ""
+      this.msg = ""
     }
   }
 
