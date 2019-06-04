@@ -8,8 +8,6 @@
       <button @click="reset">Reset</button>
     </div>
     <div>
-      <p>Nombre joueur {{ numPlayer }}</p>
-      <p>Nombre ordi {{ nbOrdi }}</p>
       <p>Le gagnant est {{ winner }}</p>
       <p>Nombre d'essai = {{ nbEssai }}</p>
     </div>
@@ -21,9 +19,10 @@ export default {
   name: 'GuessNumber',
 
   data () {
+    let numOrdi = Math.random()*5
     return {
       numPlayer: "",
-      nbOrdi: "",
+      nbOrdi: Math.round(numOrdi),
       winner: "",
       nbEssai: 0
     }
@@ -32,8 +31,6 @@ export default {
   methods: {
     play() {
 
-      let numOrdi = Math.random()*5
-      this.nbOrdi = Math.round(numOrdi)
       this.nbEssai++
 
       if(this.numPlayer < this.nbOrdi){
@@ -53,7 +50,8 @@ export default {
     reset() {
       this.nbEssai = 0
       this.numPlayer = ""
-      this.nbOrdi = ""
+      let numOrdi = Math.random()*5
+      this.nbOrdi = Math.round(numOrdi)
       this.winner = ""
     }
   }
