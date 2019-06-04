@@ -10,6 +10,7 @@
     <div>
       <p>Le gagnant est {{ winner }}</p>
       <p>Nombre d'essai = {{ nbEssai }}</p>
+      <p>{{ msg }}</p>
     </div>
   </div>
 </template>
@@ -24,7 +25,8 @@ export default {
       numPlayer: "",
       nbOrdi: Math.round(numOrdi),
       winner: "",
-      nbEssai: 0
+      nbEssai: 0,
+      msg: ""
     }
   },
 
@@ -35,15 +37,15 @@ export default {
 
       if(this.numPlayer < this.nbOrdi){
         this.winner = 'ordi'
-        console.log("perdu")
+        this.msg = 'Le nombre saisie est plus petit'
       }
       else if(this.numPlayer > this.nbOrdi){
         this.winner = 'ordi'
-          console.log("perdu")
+        this.msg = 'le nombre saisie est plus grand'
       }
       else if(this.numPlayer == this.nbOrdi){
           this.winner = 'player'
-          console.log("gagné");
+          this.msg = 'Vous avez gagné !'
       }
     },
 
