@@ -10,7 +10,7 @@
       <ul>
         <li v-for="task in list" :key="task.id" :class="{faite: task.completed}">
           <div class="to-do-list_check" > 
-            <label>{{ task.name }}</label>
+            <label class="to-do-list_style">{{ task.name }}</label>
             <input type="checkbox" name="check" v-model="task.completed">
           </div>
         </li>
@@ -67,10 +67,15 @@ export default {
       text-decoration: line-through;
     }
 
+    &_style {
+      padding-right: 150px;
+    }
+
     &_check {
       border-bottom: 1px solid;
       width: 50%;
       margin: 0 auto;
+      padding: 15px 0px 15px 0px;
     }
   }
 </style>
