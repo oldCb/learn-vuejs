@@ -23,10 +23,6 @@
 export default {
   name: "ToDoList",
 
-  props: {
-
-  },
-
   data () {
     return {
       list: [{
@@ -41,8 +37,8 @@ export default {
     add() {
       if(this.newTask){
         this.list.push({
-          completed: false,
-          name: this.newTask
+          name: this.newTask,
+          completed: false
         })
         this.newTask = ""
       }
