@@ -7,10 +7,14 @@
     </div>
     <div>
       <p>Liste des tâches</p>
-      <div class="to-do-list_check" v-for="task in list" :key="task.id">
-        <p class="barré">{{ task }}</p>
-        <input type="checkbox" name="check" v-model="isCheck">
-      </div>
+      <ul>
+        <li v-for="task in list" :key="task.id" :class="{faite: task.completed}">
+          <div class="to-do-list_check" > 
+            <label>{{ task.name }}</label>
+            <input type="checkbox" name="check" v-model="task.completed">
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -25,22 +29,22 @@ export default {
 
   data () {
     return {
-      list: [],
-      newTask: "",
-      isCheck: false
+      list: [{
+        name: 'tache',
+        completed: false
+      }],
+      newTask: ""
     }
   },
 
   methods: {
     add() {
       if(this.newTask){
-        this.list.push(this.newTask)
+        this.list.push({
+          completed: false,
+          name: this.newTask
+        })
         this.newTask = ""
-      }
-    },
-    isCheck(e) {
-      if(isCheck) {
-
       }
     }
   }
@@ -54,19 +58,19 @@ export default {
     padding-bottom: 15px;
     margin-bottom: 20px;
 
+    & ul {
+      list-style: none;
+      padding-left: 0px;
+    }
+
+    & .faite {
+      text-decoration: line-through;
+    }
+
     &_check {
       border-bottom: 1px solid;
       width: 50%;
       margin: 0 auto;
-
-
-      & p {
-        display: inline-block;
-        width: 30%;
-      }
-      & .barré {
-        text-decoration: line-through;
-      }
     }
   }
 </style>
