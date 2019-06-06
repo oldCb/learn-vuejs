@@ -17,7 +17,7 @@ export default {
   name: 'Compteur',
   data () {
     return {
-      nombre
+      nombre: 0
     }
   },
   computed: {
