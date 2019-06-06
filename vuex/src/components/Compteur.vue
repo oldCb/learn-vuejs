@@ -5,6 +5,9 @@
     <button @click="increment">+</button>
     <button @click="decrement">-</button>
     <button @click="reset">reset</button>
+    <br>
+    <input v-model="nombre">
+    <button @click="set(nombre)">changer nombre</button>
   </div>
 </template>
 
@@ -12,6 +15,11 @@
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Compteur',
+  data () {
+    return {
+      nombre
+    }
+  },
   computed: {
     ...mapGetters({
       valeur: 'compteur/valeur'
@@ -21,7 +29,8 @@ export default {
     ...mapActions({
       increment: 'compteur/incrementValeur',
       decrement: 'compteur/decrementValeur',
-      reset: 'compteur/resetValeur'
+      reset: 'compteur/resetValeur',
+      set: 'compteur/setValeur'
     })
   }
 }

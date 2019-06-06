@@ -1,7 +1,8 @@
 import {
   COMPTEUR_INCREMENT_VALEUR,
   COMPTEUR_DECREMENT_VALEUR,
-  COMPTEUR_RESET_VALEUR
+  COMPTEUR_RESET_VALEUR,
+  COMPTEUR_SET_VALEUR
 } from '../mutation-types'
 
 const state = {
@@ -19,6 +20,11 @@ function decrementValeur () {
 function resetValeur () {
   return { type: COMPTEUR_RESET_VALEUR }
 }
+
+function setValeur (valeurUtilisateur) {
+  return { type: COMPTEUR_SET_VALEUR, valeurUtilisateur }
+}
+
 // methodes de lancement des mutations
 
 const getters = {
@@ -34,6 +40,9 @@ const actions = {
   },
   resetValeur ({ commit }) {
     commit(resetValeur())
+  },
+  setValeur ({ commit }, valeurUtilisateur) {
+    commit(setValeur(valeurUtilisateur))
   }
 }
 
@@ -48,6 +57,9 @@ const mutations = {
   },
   [COMPTEUR_RESET_VALEUR] (state, payload) {
     state.valeur = 0
+  },
+  [COMPTEUR_SET_VALEUR] (state, payload) {
+    state.valeur = payload.valeurUtilisateur
   }
 }
 
