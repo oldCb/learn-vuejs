@@ -4,21 +4,19 @@
     <input type="text" placeholder="Ajouter une tâche" v-model="newTask" @keyup.enter="ajouter(newTask)">
     <button @click="ajouter(newTask)">Ajouter</button>
     <ul>
-      <li v-for="(list, index) in list" :key="list.id" :class="{check: list.completed}">
-        <div class="tache">
-          <input type="checkbox" name="check" v-model="list.completed">
-          <label for="check">{{ list.name }}</label>
-        </div>
-        <button class="supp" @click="supprimer(index)">X</button>
-      </li>
+      <task :tabList="list" />
     </ul>
   </div>
 </template>
 
 <script>
+import Task from '@/components/Task'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'ToDoList',
+  components: {
+    Task
+  },
   data () {
     return {
       newTask: ''
@@ -31,8 +29,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      ajouterT: 'toDoList/ajouter',
-      supprimer: 'toDoList/supprimer'
+      ajouterT: 'toDoList/ajouter'
     }),
     ajouter(task){
       this.newTask = ''
@@ -52,33 +49,5 @@ export default {
       list-style: none;
       padding-left: 0;
     }
-
-    & li {
-      border-bottom: 1px solid;
-      width: 45%;
-      margin: 0 auto;
-      padding: 15px 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      & label {
-        margin-left: 10px;
-      }
-    }
-
-    & li:last-child {
-      border-bottom: none;
-    }
-
-  }
-  .check {
-    text-decoration: line-through;
-  }
-  .supp {
-    background-color: transparent;
-    border: none;
   }
 </style>
-
-
