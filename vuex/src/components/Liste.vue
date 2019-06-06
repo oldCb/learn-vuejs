@@ -2,7 +2,7 @@
   <div class="liste">
     <h3>Exercice 2 - LISTE OBJET</h3>
     <ul>
-      <li v-for="(article, index) in listeObjets" :key="index">
+      <li v-for="(article, index) in listeObjets" :key="index" @click="montrerProduit(index)">
         {{ article. nom }} -- {{ article.prix }}
       </li>
     </ul>
@@ -31,7 +31,11 @@ export default {
         }
       ]
     }
-
+  },
+  methods: {
+    montrerProduit (index) {
+      alert(this.listeObjets[index].nom)
+    }
   }
 }
 </script>
