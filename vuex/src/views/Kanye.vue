@@ -10,6 +10,7 @@
 <script>
 import LoadingAnimation from '@/components/LoadingAnimation'
 import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'Kanye',
   components: {
