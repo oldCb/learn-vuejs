@@ -1,12 +1,19 @@
 <template>
   <div class="kanye">
-    <p>Kanye dit: "{{ citation }}"</p>
+    <loading-animation v-if="loading" />
+    <div v-if="!loading">
+      <p>Kanye dit: "{{ citation }}"</p>
+    </div>
   </div>
 </template>
 
 <script>
+import LoadingAnimation from '@/components/LoadingAnimation'
 export default {
   name: 'Kanye',
+  components: {
+    LoadingAnimation
+  },
   data () {
     return {
       citation: '',
@@ -14,6 +21,7 @@ export default {
     }
   },
   created () {
+    this.loading = true
     fetch('https://api.kanye.rest/')
       .then((response) => {
         return response.json();
@@ -21,6 +29,7 @@ export default {
       .then((myJson) => {
         console.log(myJson)
         this.citation = myJson.quote
+        this.loading = false
       })
   }
 }
