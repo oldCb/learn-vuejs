@@ -1,9 +1,9 @@
 <template>
   <div class="task">
-    <li v-for="(task, index) in tabList" :key="task.id" :class="{check: task.completed}" :list="tabList">
+    <li v-for="(task, index) in tabList" :key="task.id" :list="tabList">
       <div class="tache">
         <input type="checkbox" name="check" v-model="task.completed">
-        <label for="check">{{ task.name }}</label>
+        <label for="check" :class="{check: task.completed}">{{ task.name }}</label>
       </div>
       <button class="supp" @click="supprimer(index)">X</button>
     </li>
