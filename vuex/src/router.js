@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Exercices from './views/Exercices.vue'
+import Kanye from './views/Kanye'
 
 Vue.use(Router)
 
@@ -26,6 +27,11 @@ export default new Router({
       path: '/Exercices',
       name: 'exercices',
       component: Exercices
+    },
+    {
+      path: '/Kanye',
+      name: 'kanye',
+      component: Kanye
     }
   ]
 })

@@ -3,7 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link to="/exercices">Exercices</router-link>
+      <router-link to="/exercices">Exercices</router-link> |
+      <router-link to="/kanye">Kanye-API</router-link>
     </div>
     <router-view/>
   </div>
