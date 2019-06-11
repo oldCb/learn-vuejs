@@ -9,28 +9,25 @@
 
 <script>
 import LoadingAnimation from '@/components/LoadingAnimation'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Kanye',
   components: {
     LoadingAnimation
   },
-  data () {
-    return {
-      citation: '',
-      loading: false
-    }
-  },
   created () {
-    this.loading = true
-    fetch('https://api.kanye.rest/')
-      .then((response) => {
-        return response.json();
-      })
-      .then((myJson) => {
-        console.log(myJson)
-        this.citation = myJson.quote
-        this.loading = false
-      })
+    this.getCitation
+  },
+  methods: {
+    ...mapActions({
+      getCitation: 'kanye/getCitation'
+    })
+  },
+  computed: {
+    ...mapGetters({
+      citation: 'kanye/citation',
+      loading: 'kanye/loading'
+    })
   }
 }
 </script>
