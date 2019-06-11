@@ -16,7 +16,7 @@ export default {
     LoadingAnimation
   },
   created () {
-    this.getCitation
+    this.getCitation()
   },
   methods: {
     ...mapActions({
