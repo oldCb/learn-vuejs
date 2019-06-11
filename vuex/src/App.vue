@@ -4,7 +4,8 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/exercices">Exercices</router-link> |
-      <router-link to="/kanye">Kanye-API</router-link>
+      <router-link to="/kanye">Kanye-API</router-link> |
+      <router-link to="/github">GitHub-API</router-link>
     </div>
     <router-view/>
   </div>

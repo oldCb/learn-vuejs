@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from './views/Home.vue'
 import Exercices from './views/Exercices.vue'
 import Kanye from './views/Kanye'
+import Github from './views/Github'
 
 Vue.use(Router)
 
@@ -32,6 +33,11 @@ export default new Router({
       path: '/Kanye',
       name: 'kanye',
       component: Kanye
+    },
+    {
+      path: '/Github',
+      name: 'github',
+      component: Github
     }
   ]
 })
