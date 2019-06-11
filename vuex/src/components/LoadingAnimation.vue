@@ -19,7 +19,7 @@
   width: 0.8em;
   height: 0.8em;
   border-radius: 50%;
-  background-color: #fc2f70;
+  background-color: #fc2f40;
   transform: translateY(-100%);
   animation: wave 0.8s ease-in-out alternate infinite;
 }
