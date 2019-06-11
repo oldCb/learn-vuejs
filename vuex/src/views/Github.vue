@@ -2,7 +2,7 @@
   <div class="github">
     <h3>Exercice API</h3>
     <div v-for="elem in tabResult" :key="elem.id" class="elem">
-      <p>Langages : {{ elem.language }}</p>
+      <p>Langage : {{ elem.language }}</p>
       <p>Stars : {{ elem.stars }}</p>
     </div>
   </div>
@@ -33,8 +33,13 @@ export default {
   .elem {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 50%;
+    justify-content: space-between;
+    width: 40%;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  .elem:nth-child(2n+1){
+    background-color:#efeded;
   }
 </style>
 
