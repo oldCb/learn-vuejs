@@ -29,7 +29,10 @@ const actions = {
         return response.json()
       })
       .then((myJson) => {
-        commit(setTabResult(myJson))
+        const trie = myJson.filter((element) => {
+          return element.language
+        })
+        commit(setTabResult(trie))
         commit(setLoading(false))
       })
   }
