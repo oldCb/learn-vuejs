@@ -8,3 +8,4 @@ export const SUPPRIMER_TASK = 'SUPPRIMER_TASK'
 
 export const SET_LOADING = 'SET_LOADING'
 export const SET_CITATION = 'SET_CITATION'
+export const SET_TABRESULT = 'SET_TABRESULT'

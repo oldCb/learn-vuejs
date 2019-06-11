@@ -15,7 +15,7 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Task',
   props: {
-    tabList: []
+    tabList: Array
   },
   data () {
     return {
